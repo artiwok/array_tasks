@@ -26,11 +26,13 @@
     function findElem(arr) {
       while (true) {
         let val = prompt(`Enter a number value. To quit enter "exit":`);
+
         if (val == 'exit') {
           break;
         }
 
         let convertedValue = Number(val);
+        
         if (isNaN(convertedValue)) {
           continue;
         } else {
@@ -40,7 +42,7 @@
               break;
             }
           }
-          break; cd
+          break;
         }
       }
       return `No such element`;
