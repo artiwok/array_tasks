@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array_element_check</title>
+</head>
+
+<body>
+  <script>
+
+    // Дан массив с числами. Проверьте, что в этом массиве есть число 5. 
+    // Если есть - выведите 'да', а если нет - выведите 'нет'.
+
+    let myArr = [];
+    let arrMax = 7;
+    let limit = arrMax + 3;
+    for (let i = 0; i < arrMax; i++) {
+      myArr.push(Math.floor(Math.random() * limit));
+    }
+
+    console.log(myArr);
+
+    function findElem(arr) {
+      while (true) {
+        let val = prompt(`Enter a number value. To quit enter "exit":`);
+        if (val == 'exit') {
+          break;
+        }
+
+        let convertedValue = Number(val);
+        if (isNaN(convertedValue)) {
+          continue;
+        } else {
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === convertedValue) {
+              return `The element index is ${i}`;
+              break;
+            }
+          }
+          break; cd
+        }
+      }
+      return `No such element`;
+    }
+
+    console.log(findElem(myArr));
+
+  </script>
+</body>
+
+</html>
