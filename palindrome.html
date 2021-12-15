@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>palindrome</title>
+</head>
+
+<body>
+  <script>
+
+    // is a sting a palindrome (i.e. 'abbba', '123321', 'Ne GnI pApIn GeN', 'А роза упала на лапу Азора') ?
+
+    // Variant 1 с учетом возможных пробелов и регистра в строке
+
+    function getRandomString() {
+      let letters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let randomStringLength = Math.floor(Math.random() * 20);
+      let randomWord = '';
+
+      for (let i = 0; i < randomStringLength; i++) {
+        randomWord += letters[Math.floor(Math.random() * 36)];
+      }
+      return randomWord;
+    }
+
+    let randomStringSequence = getRandomString();
+
+    console.log(randomStringSequence);
+
+
+    // let str1 = prompt(`Enter a string: `);
+
+    // function isPalindrome(str) {
+    //   str = str.split('');
+    //   for (let i = 0; i < str.length; i++) {
+    //     if (str[i] === ' ') {
+    //       str.splice(i, 1);
+    //     }
+    //   }
+    //   str = str.join('').toUpperCase(); // или можно также взамен привести строку к нижнему регистру, т.е. toLowerCase() , без разницы в данном случае
+    //   let flag = true;
+    //   for (let i = 0; i < str.length; i++) {
+    //     if (str[i] !== str[str.length - 1 - i]) {
+    //       flag = false;
+    //     }
+    //   }
+    //   return flag;
+    // }
+
+    // console.log(isPalindrome(randomStringSequence));
+
+    // console.log(isPalindrome(str1));
+
+
+    // Variant 2 с учетом возможных пробелов и регистра в строке. Укорачивание длины строки вдвое
+
+    function isPalindrome(str) {
+      str = str.split('');
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === ' ') {
+          str.splice(i, 1);
+        }
+      }
+      str = str.join('').toUpperCase(); // или можно также взамен привести строку к нижнему регистру, т.е. toLowerCase() , без разницы в данном случае
+      let flag = true;
+      const len = Math.floor(str.length / 2); // Укорачивание длины строки вдвое для оптимизации
+      for (let i = 0; i < len; i++) {
+        if (str[i] !== str[str.length - 1 - i]) {
+          flag = false;
+        }
+      }
+      return flag;
+    }
+
+    console.log(isPalindrome(randomStringSequence));
+
+    // console.log(isPalindrome(str1));
+
+
+    // // Variant 2 с учетом возможных пробелов и регистра в строке
+
+    // function isPalin(str) {
+    //   let res;
+    //   let strArr = str.split('');
+    //   console.log(strArr);
+    //   for (let i = 0; i < strArr.length; i++) {
+    //     if (strArr[i] === ' ') {
+    //       strArr.splice(i, 1);
+    //     }
+    //   }
+    //   str = strArr.join('').toLowerCase();
+    //   let strReversed = strArr.reverse().join('').toLowerCase();
+    //   if (str === strReversed) {
+    //     res = true;
+    //   } else {
+    //     res = false;
+    //   }
+    //   return res;
+    // }
+
+    // // console.log(isPalin(randomStringSequence));
+    // console.log(isPalin('А роза упала на лапу Азора'));
+    // console.log(isPalin('Ne GnI pApIn GeN'));
+    // console.log(isPalin('187371'));
+
+
+    // // Variant 3 без учета возможных пробелов и регистра в строке
+
+    // function isPalin(str) {
+    //   let res;
+    //   for (let i = 0; i < str.length; i++) {
+    //     if (str[i] === str[str.length - 1 - i]) {
+    //       res = true;
+    //     } else {
+    //       res = false;
+    //       return res;
+    //     }
+    //   }
+    //   return res;
+    // }
+
+    // isPalin('1000101'); // false
+
+
+    // // Variant 4 без учета возможных пробелов и регистра в строке
+
+    // function isPalindrome(str) {
+    //   let strReverse = str.split('').reverse().join(''); // Разбиваем строку посимвольно и превращаем ее в массив с помощью split(''), потом применяем к нему метод reverse() и собираем все символы в строку с помощью join('')
+    //   if (strReverse == str) {
+    //     return 'yes';
+    //   } else {
+    //     return 'no';
+    //   }
+    // }
+
+    // test = isPalindrome('abcdedcba');
+    // test2 = isPalindrome('18737');
+
+    // console.log(test);
+    // console.log(test2);
+
+  </script>
+</body>
+
+</html>
